@@ -1,13 +1,16 @@
-import * as THREE from 'three';
+import * as THREE from 'https://esm.sh/three@0.160.0';
 import { api } from '../../../scripts/api.js'
 
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { OrbitControls } from 'https://esm.sh/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { RoomEnvironment } from 'https://esm.sh/three@0.160.0/examples/jsm/environments/RoomEnvironment.js';
 
-import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { OBJLoader } from 'https://esm.sh/three@0.160.0/examples/jsm/loaders/OBJLoader.js';
+
+// Guard: only run inside the threeVisualizer iframe, not in the main ComfyUI page
+const container = document.getElementById('container');
+if (container) {
 
 const visualizer = document.getElementById("visualizer");
-const container = document.getElementById( 'container' );
 const progressDialog = document.getElementById("progress-dialog");
 const progressIndicator = document.getElementById("progress-indicator");
 
@@ -110,3 +113,5 @@ async function main(params) {
 }
 
 main();
+
+} // end guard
